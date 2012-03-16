@@ -20,13 +20,18 @@ package
 		
 		override public function create():void
 		{
+			if (FlxG.getPlugin(FlxMouseControl) == null)
+			{
+				FlxG.addPlugin(new FlxMouseControl);
+			}
+			
 			level = new Level1;
 			
 			add(new FlxText(0, 0, 100, "Hello, World!")); 
 			player = new Player(0, 32);   
 			
 			shooter = new Shooter( 32, 32 );
-			shooter.setMouseDrag( true, true );
+			shooter.enableMouseDrag( true, true );
 			
 			var numPlayerBullets:uint = 8;
 			bullets = new FlxGroup(numPlayerBullets);//Initializing the array is very important and easy to forget!
@@ -52,10 +57,10 @@ package
 			_goal = new FlxExtendedSprite(TILE_WIDTH*19, TILE_HEIGHT*7);
 			_goal.makeGraphic(TILE_WIDTH, TILE_HEIGHT, 0xffffff00);
 			_goal.alpha = 0.5;
-			_goal.setMouseDrag( true, true );
+			_goal.enableMouseDrag( true, true );
 			add(_goal);
 			
-			FlxG.mouse.show();
+			//FlxG.mouse.show();
 			
 			//	These are debugger watches. Bring up the debug console (the ' key by default) and you'll see their values in real-time as you play
 			FlxG.watch(player.acceleration, "x", "ax");
