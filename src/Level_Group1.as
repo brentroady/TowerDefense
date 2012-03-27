@@ -23,7 +23,7 @@ package
 			var tileProperties:Dictionary = new Dictionary;
 
 			properties = generateProperties( null );
-			layerMap1 = addTilemap( CSV_Map1, Img_Map1, 0.000, 0.000, 16, 16, 1.000, 1.000, false, 1, 1, properties, onAddCallback );
+			layerMap1 = addTilemap( CSV_Map1, Img_Map1, 16.000, -80.000, 16, 16, 1.000, 1.000, false, 1, 1, properties, onAddCallback );
 
 			//Add layers to the master group in correct order.
 			masterLayer.add(layerMap1);
@@ -31,10 +31,10 @@ package
 			if ( addToStage )
 				createObjects(onAddCallback, parentObject);
 
-			boundsMinX = 0;
-			boundsMinY = 0;
+			boundsMinX = 16;
+			boundsMinY = -80;
 			boundsMaxX = 320;
-			boundsMaxY = 240;
+			boundsMaxY = 160;
 			bgColor = 0xff000000;
 		}
 

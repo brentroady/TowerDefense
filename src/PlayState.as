@@ -26,12 +26,13 @@ package
 			}
 			
 			level = new Level1;
+			level.
 			
 			add(new FlxText(0, 0, 100, "Hello, World!")); 
-			player = new Player(0, 32);   
+			player = new Player(TILE_WIDTH * 0, TILE_HEIGHT * 4);   
 			
-			shooter = new Shooter( 32, 32 );
-			shooter.enableMouseDrag( true, true );
+			shooter = new Shooter(TILE_WIDTH * 2, TILE_HEIGHT * 4);
+			//shooter.enableMouseDrag( true, true );
 			
 			var numPlayerBullets:uint = 8;
 			bullets = new FlxGroup(numPlayerBullets);//Initializing the array is very important and easy to forget!
@@ -54,7 +55,7 @@ package
 			btnFindPath = new FlxButton(0, 0, "Move To Goal", moveToGoal);
 			add(btnFindPath);
             
-			_goal = new FlxExtendedSprite(TILE_WIDTH*19, TILE_HEIGHT*7);
+			_goal = new FlxExtendedSprite(TILE_WIDTH*15, TILE_HEIGHT*8);
 			_goal.makeGraphic(TILE_WIDTH, TILE_HEIGHT, 0xffffff00);
 			_goal.alpha = 0.5;
 			_goal.enableMouseDrag( true, true );
@@ -79,8 +80,8 @@ package
 			if(!player.exists)
 			{
 				player.revive();
-				player.x = 0;
-				player.y = 32;
+				player.x = 0 * TILE_WIDTH;
+				player.y = 4 * TILE_HEIGHT;
 			}
 		}
 		

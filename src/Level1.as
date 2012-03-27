@@ -15,6 +15,7 @@ package
 			
 			map = new FlxTilemap;
 			map.loadMap(new mapCSV, mapTilesPNG, 16, 16, 0, 0, 1, 21);
+
 			add(map);
 		}
 		

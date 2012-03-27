@@ -7,6 +7,9 @@ package
 	{
 		[Embed(source = '../assets/player.png')] private var playerPNG:Class;
 		private var shotClock:Number;
+		private var followMouse:Boolean = false;
+		private var mouseOffsetX:int;
+		private var mouseOffsetY:int;
 		
 		public function Shooter(X:Number, Y:Number) 
 		{
@@ -17,6 +20,7 @@ package
 			loadGraphic(playerPNG, true, true, 16, 18, true);
 			
 			resetShotClock();
+			
 		}
 		
 		private function resetShotClock():void
@@ -27,6 +31,26 @@ package
 		override public function update():void
 		{
 			super.update();
+			
+			if (mouseOver && FlxG.mouse.justPressed())
+			{
+				if ( followMouse ) { // release
+					x = int(Math.floor(x / width) * width);
+					y = int(Math.floor(y / height) * height);
+				}
+				else {
+					mouseOffsetX = int(FlxG.mouse.x) - x;
+					mouseOffsetY = int(FlxG.mouse.y) - y;
+				}
+				
+				followMouse = !followMouse;
+			}
+			
+			if ( followMouse )
+			{
+				x = int(FlxG.mouse.x) - mouseOffsetX;
+				y = int(FlxG.mouse.y) - mouseOffsetY;
+			}
 			
 			//Then do some bullet shooting logic
 			shotClock -= FlxG.elapsed; 
