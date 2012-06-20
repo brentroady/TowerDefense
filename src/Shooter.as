@@ -39,8 +39,8 @@ package
 					y = int(Math.floor(y / height) * height);
 				}
 				else {
-					mouseOffsetX = int(FlxG.mouse.x) - x;
-					mouseOffsetY = int(FlxG.mouse.y) - y;
+					mouseOffsetX = int(FlxG.mouse.screenX) - x;
+					mouseOffsetY = int(FlxG.mouse.screenY) - y;
 				}
 				
 				followMouse = !followMouse;
@@ -48,8 +48,8 @@ package
 			
 			if ( followMouse )
 			{
-				x = int(FlxG.mouse.x) - mouseOffsetX;
-				y = int(FlxG.mouse.y) - mouseOffsetY;
+				x = int(FlxG.mouse.screenX) - mouseOffsetX;
+				y = int(FlxG.mouse.screenY) - mouseOffsetY;
 			}
 			
 			//Then do some bullet shooting logic

@@ -8,8 +8,8 @@ package
 		public var player:Player;
 		public var level:Level1;
 		public var _goal:FlxExtendedSprite;
-		public var shooter:Shooter;
 		public var bullets:FlxGroup;
+		public var rightMenu:RightMenu;
 		
 		private var btnFindPath:FlxButton;
 		private var _action:int;
@@ -25,14 +25,11 @@ package
 				FlxG.addPlugin(new FlxMouseControl);
 			}
 			
-			level = new Level1;
-			level.
+			rightMenu = new RightMenu( TILE_WIDTH * 16, TILE_HEIGHT * 2 );
 			
-			add(new FlxText(0, 0, 100, "Hello, World!")); 
+			level = new Level1();
+
 			player = new Player(TILE_WIDTH * 0, TILE_HEIGHT * 4);   
-			
-			shooter = new Shooter(TILE_WIDTH * 2, TILE_HEIGHT * 4);
-			//shooter.enableMouseDrag( true, true );
 			
 			var numPlayerBullets:uint = 8;
 			bullets = new FlxGroup(numPlayerBullets);//Initializing the array is very important and easy to forget!
@@ -46,9 +43,9 @@ package
 				bullets.add(sprite);			//Add it to the group of player bullets
 			}
 			
+			add(rightMenu);
 			add(level);
 			add(player);
-			add(shooter);
 			add(bullets);
 		
 			//Add button move to goal to PlayState
@@ -64,9 +61,10 @@ package
 			//FlxG.mouse.show();
 			
 			//	These are debugger watches. Bring up the debug console (the ' key by default) and you'll see their values in real-time as you play
-			FlxG.watch(player.acceleration, "x", "ax");
-			FlxG.watch(player.velocity, "x", "vx");
-			FlxG.watch(player.velocity, "y", "vy");
+			FlxG.watch(FlxG.mouse, "x");
+			FlxG.watch(FlxG.mouse, "y");
+			FlxG.watch(FlxG.mouse, "screenX");
+			FlxG.watch(FlxG.mouse, "screenY");
 		}
 		
 		override public function update():void
