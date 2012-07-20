@@ -8,26 +8,25 @@
   <compiler>
     <define append="true">
       <name>CONFIG::debug</name>
-      <value>false</value>
-    </define>
-    <define append="true">
-      <name>CONFIG::release</name>
       <value>true</value>
     </define>
     <define append="true">
-      <name>CONFIG::timeStamp</name>
-      <value>'3/27/2012'</value>
+      <name>CONFIG::release</name>
+      <value>false</value>
     </define>
-    <optimize>true</optimize>
-    <verbose-stacktraces>false</verbose-stacktraces>
+    <define append="true">
+      <name>CONFIG::timeStamp</name>
+      <value>'7/20/2012'</value>
+    </define>
+    <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
-      <path-element>C:\Users\Brent\Workspace\TowerDefense\src</path-element>
-      <path-element>C:\Users\Brent\Workspace\flixel</path-element>
-      <path-element>C:\Program Files\FlashDevelop\Library\AS3\classes</path-element>
+      <path-element>C:\workspace\TowerDefense\src</path-element>
+      <path-element>C:\workspace\flixel</path-element>
+      <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
   </compiler>
   <file-specs>
-    <path-element>C:\Users\Brent\Workspace\TowerDefense\src\HelloWorld.as</path-element>
+    <path-element>C:\workspace\TowerDefense\src\HelloWorld.as</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>

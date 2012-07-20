@@ -28,6 +28,13 @@ package
 			shotClock = 1+FlxG.random()*10;
 		}
 		
+		public function follow():void
+		{
+			followMouse = true;
+			mouseOffsetX = int(FlxG.mouse.screenX) - x;
+			mouseOffsetY = int(FlxG.mouse.screenY) - y;
+		}
+		
 		override public function update():void
 		{
 			super.update();
