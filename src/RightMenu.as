@@ -26,7 +26,7 @@
 		
 		public function onClick():void 
 		{
-			var s:Shooter = new Shooter( FlxG.mouse.x, FlxG.mouse.y );
+			var s:Shooter = new Shooter( FlxG.mouse.x - 8, FlxG.mouse.y - 8 );
 			s.follow();
 			(FlxG.state as PlayState).add( s );
 		}
